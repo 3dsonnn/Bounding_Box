@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:40:46 by efinda            #+#    #+#             */
-/*   Updated: 2025/02/04 09:37:01 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/04 14:06:00 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ void	my_mlx_init(t_obx *obx)
 	set_tiles(obx, -1, -1);
 	init_background(obx);
 	init_minimap(obx);
-    	ft_mtxfree(&obx->map.content);
+    ft_mtxfree(&obx->map.content);
 }
