@@ -6,24 +6,20 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:50:36 by efinda            #+#    #+#             */
-/*   Updated: 2025/01/26 19:12:17 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/04 05:34:51 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
 
-typedef enum IFPOS
+typedef enum e_CORNERS
 {
-	IFUP,
-	IFDOWN,
-	IFLEFT,
-	IFRIGHT,
-	IFUPLEFT,
-	IFUPRIGHT,
-	IFDOWNLEFT,
-	IFDOWNRIGHT
-}					t_IFPOS;
+	TOPLEFT,
+	TOPRIGHT,
+	BOTTLEFT,
+	BOTTRIGHT
+}					t_CORNERS;
 
 typedef struct s_dpoint
 {
@@ -47,19 +43,38 @@ typedef struct s_plane
 	int				y;
 }					t_plane;
 
+typedef struct s_rows
+{
+	char			*str;
+	struct s_rows	*next;
+}					t_rows;
+
 typedef struct s_img
 {
-	void			*img;
 	char			*addr;
+	void			*img;
 	int				bpp;
-	int				line_len;
+	int				width;
+	int				height;
 	int				endian;
+	int				line_len;
 }					t_img;
+
+typedef struct s_map
+{
+	int				fd;
+	char			*line;
+	char			**content;
+	t_point			size;
+	t_point			start;
+	t_rows			*head;
+}					t_map;
 
 typedef struct s_tile
 {
-	int				active;
-	t_plane			pos;
+	char			id;
+	int				color;
+	t_point			crd;
 	struct s_tile	*up;
 	struct s_tile	*down;
 	struct s_tile	*left;
@@ -70,14 +85,30 @@ typedef struct s_tile
 	struct s_tile	*downright;
 }					t_tile;
 
-typedef struct s_tbr
+typedef struct s_mmap
+{
+	int				box;
+	int				tilesize;
+	t_tile			*corners[4];
+	t_tile			**tiles;
+	t_img			lil;
+}					t_mmap;
+
+typedef struct s_gmap
+{
+	int				tilesize;
+	t_img			big;
+}					t_gmap;
+
+typedef struct s_obx
 {
 	void			*mlx;
 	void			*win;
-	t_img			img;
+	t_tile			*cur;
 	t_tile			**tiles;
-	int				tilewidth;
-	int				tileheight;
-}					t_tbr;
+	t_mmap			minimap;
+	t_gmap			grandmap;
+	t_map			map;
+}					t_obx;
 
 #endif
