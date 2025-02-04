@@ -6,7 +6,7 @@
 #    By: efinda <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 09:28:49 by efinda            #+#    #+#              #
-#    Updated: 2025/02/03 16:36:59 by efinda           ###   ########.fr        #
+#    Updated: 2025/02/04 09:30:29 by efinda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,17 +20,20 @@ FLAGS = -I./$(MLXPATH) -O3 #	-Wall -Wextra -Werror
 LIBS =	-L./$(MLXPATH) -lmlx -lX11 -lXext -lm
 RM = rm -rf
 
-SRC =	src/main.c 									\
+SRC =		src/main.c 							\
 		src/checks/checks.c 						\
-		src/checks/map.c 							\
+		src/checks/map.c 						\
 		src/checks/map_utils.c 						\
 		src/my_mlx/my_mlx_init.c					\
+		src/my_mlx/linkage.c						\
+		src/my_mlx/settings.c						\
 		src/my_mlx/my_mlx_hook.c					\
 		src/my_mlx/my_mlx_utils.c					\
-		src/maps/lil/init.c							\
-		src/maps/big/init.c							\
-		src/maps/big/linkage.C						\
-		src/t_row/t_row.c							\
+		src/movement/move_player.c					\
+		src/OBX/obx.c							\
+		src/OBX/paint_obx.c						\
+		src/OBX/update_obx.c						\
+		src/t_row/t_row.c						\
 		src/t_row/t_row_aux.c						\
 
 LIBFT =	libft/libft.a

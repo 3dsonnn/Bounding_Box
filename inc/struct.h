@@ -6,7 +6,11 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:50:36 by efinda            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2025/02/04 05:34:51 by efinda           ###   ########.fr       */
+=======
+/*   Updated: 2025/02/04 07:38:08 by efinda           ###   ########.fr       */
+>>>>>>> 3c36654 (rendering both the background and minimap, but I can't still make it move, idw but I'll find out)
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +24,7 @@ typedef enum e_CORNERS
 	BOTTLEFT,
 	BOTTRIGHT
 }					t_CORNERS;
+<<<<<<< HEAD
 
 typedef struct s_dpoint
 {
@@ -34,6 +39,8 @@ typedef struct s_dplane
 	double			y0;
 	double			y;
 }					t_dplane;
+=======
+>>>>>>> 3c36654 (rendering both the background and minimap, but I can't still make it move, idw but I'll find out)
 
 typedef struct s_plane
 {
@@ -91,6 +98,7 @@ typedef struct s_mmap
 	int				tilesize;
 	t_tile			*corners[4];
 	t_tile			**tiles;
+<<<<<<< HEAD
 	t_img			lil;
 }					t_mmap;
 
@@ -100,6 +108,11 @@ typedef struct s_gmap
 	t_img			big;
 }					t_gmap;
 
+=======
+	t_img			img;
+}					t_mmap;
+
+>>>>>>> 3c36654 (rendering both the background and minimap, but I can't still make it move, idw but I'll find out)
 typedef struct s_obx
 {
 	void			*mlx;
@@ -107,7 +120,12 @@ typedef struct s_obx
 	t_tile			*cur;
 	t_tile			**tiles;
 	t_mmap			minimap;
+<<<<<<< HEAD
 	t_gmap			grandmap;
+=======
+	t_img			background_img;
+	int				background_tilesize;
+>>>>>>> 3c36654 (rendering both the background and minimap, but I can't still make it move, idw but I'll find out)
 	t_map			map;
 }					t_obx;
 

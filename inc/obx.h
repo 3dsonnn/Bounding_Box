@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 12:27:58 by efinda            #+#    #+#             */
-/*   Updated: 2025/02/04 05:04:51 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/04 09:32:02 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,10 @@
 void	move_player(t_obx *obx, t_plane flag);
 
 // OBX
-void	bounding_box(t_obx *obx);
-
-//  GRAND
-void	init_grandmap(t_obx *obx, int i);
-void	grand_link_tiles(t_obx *obx, int i, int j);
-
-//  LIL
-void	init_lilmap(t_obx *obx, int i);
-void	lil_link_tiles(t_obx *obx, int i, int j);
+void	bounding_box(t_obx *obx, int i, int j);
+void    update_obx(t_obx *obx);
+void	paint_obx(t_obx *obx, t_tile *cur, t_tile *y);
+void	paint_minimap_tile(t_obx *obx, int i, int j, int color);
 
 //  CHECKS
 void	checks(t_map *map, int ac, char **av);
@@ -60,7 +55,7 @@ void    exit_map(char *message, t_map *map);
 //  MLX
 void	my_mlx_init(t_obx *obx);
 void	my_mlx_hook(t_obx *obx);
-int		my_mlx_get_rgb_color(int r, int g, int b);
+int	my_mlx_get_rgb_color(int r, int g, int b);
 void	my_mlx_pixel_put(t_img *image, int x, int y, int color);
 
 //  T_ROW
@@ -69,6 +64,5 @@ void	free_rows(t_rows **head);
 t_rows	*new_row(char *str);
 int	rowlen(t_rows *head);
 void	add_row(t_rows **head, t_rows *_new);
-
 
 #endif

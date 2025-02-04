@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:33:35 by efinda            #+#    #+#             */
-/*   Updated: 2025/02/04 05:01:02 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/04 09:36:26 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	my_mlx_close(t_obx *obx)
 {
-	mlx_destroy_image(obx->mlx, obx->grandmap.big.img);
-	mlx_destroy_image(obx->mlx, obx->minimap.lil.img);
+	mlx_destroy_image(obx->mlx, obx->background_img.img);
+	mlx_destroy_image(obx->mlx, obx->minimap.img.img);
 	mlx_destroy_window(obx->mlx, obx->win);
 	mlx_destroy_display(obx->mlx);
 	free(obx->mlx);
@@ -36,7 +36,7 @@ static int	my_mlx_key_press(int keycode, t_obx *obx)
 		move_player(obx, (t_plane){0, 0, 0, 1});
 	else
 		return (0);
-	bounding_box(obx);
+	bounding_box(obx, -1, -1);
 	return (0);
 }
 
@@ -51,5 +51,5 @@ void	my_mlx_hook(t_obx *obx)
 {
 	mlx_hook(obx->win, 2, 1L << 0, my_mlx_key_press, obx);
 	mlx_hook(obx->win, 17, 1L << 17, my_mlx_close, obx);
-    mlx_hook(obx->win, 6, 1L << 6, my_mlx_mouse_motion, obx);
+	mlx_hook(obx->win, 6, 1L << 6, my_mlx_mouse_motion, obx);
 }
