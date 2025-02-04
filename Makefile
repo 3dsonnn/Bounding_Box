@@ -6,13 +6,13 @@
 #    By: efinda <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/09 09:28:49 by efinda            #+#    #+#              #
-#    Updated: 2025/01/26 19:07:01 by efinda           ###   ########.fr        #
+#    Updated: 2025/02/03 16:36:59 by efinda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .SILENT:
 
-NAME = TBR
+NAME = OBX
 
 CC = cc
 MLXPATH = minilibx-linux
@@ -20,8 +20,18 @@ FLAGS = -I./$(MLXPATH) -O3 #	-Wall -Wextra -Werror
 LIBS =	-L./$(MLXPATH) -lmlx -lX11 -lXext -lm
 RM = rm -rf
 
-SRC =	main.c 		\
-	my_mlx.c	\
+SRC =	src/main.c 									\
+		src/checks/checks.c 						\
+		src/checks/map.c 							\
+		src/checks/map_utils.c 						\
+		src/my_mlx/my_mlx_init.c					\
+		src/my_mlx/my_mlx_hook.c					\
+		src/my_mlx/my_mlx_utils.c					\
+		src/maps/lil/init.c							\
+		src/maps/big/init.c							\
+		src/maps/big/linkage.C						\
+		src/t_row/t_row.c							\
+		src/t_row/t_row_aux.c						\
 
 LIBFT =	libft/libft.a
 MINILIBX = $(MLXPATH)/libmlx.a

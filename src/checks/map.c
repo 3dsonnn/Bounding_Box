@@ -6,11 +6,11 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 02:23:44 by efinda            #+#    #+#             */
-/*   Updated: 2025/01/26 17:47:28 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/03 14:06:56 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/TBR.h"
+#include "../../inc/obx.h"
 
 static void	fill_map_aux(t_map *map)
 {
@@ -71,14 +71,14 @@ void	check_starting_position(t_map *map)
 		{
 			if (ft_strchr("S", map->content[i][j]))
 			{
-				map->postart.x = j;
-				map->postart.y = i;
+				map->start.x = j;
+				map->start.y = i;
 				flag++;
 			}
 		}
 	}
 	if (!flag)
-		exit_error("There isn't a start position on the map", map);
+		exit_map("There isn't a start position on the map", map);
 	if (flag > 1)
-		exit_error("There's more than one start position on the map", map);
+		exit_map("There's more than one start position on the map", map);
 }

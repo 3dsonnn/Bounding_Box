@@ -6,26 +6,32 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:58:45 by efinda            #+#    #+#             */
-/*   Updated: 2025/01/26 19:23:01 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/03 15:58:33 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/TBR.h"
+#include "../inc/obx.h"
 
-void	init
+static void	print_map(t_map *map)
+{
+	int	i;
+
+	i = -1;
+	printf("\n");
+	while (++i < map->size.y)
+		printf("%s\n", map->content[i]);
+	printf("\n");
+}
 
 int	main(int ac, char **av)
 {
-	t_tbr	tbr;
+	t_obx	obx;
 
 	(void)av;
-	if (ac != 1)
-		return (write(2, "No args required\n",
-				ft_strlen("No args required\n")));
-	init_tbr(&tbr, -1, -1);
-	my_mlx_init(&tbr);
-	my_mlx_hook(&tbr);
-	tbr(&tbr);
-	mlx_loop(tbr.mlx);
+	checks(&obx.map, ac, av);
+	my_mlx_init(&obx);
+	my_mlx_hook(&obx);
+	bounding_box(&obx);
+	mlx_loop(obx.mlx);
 	return (0);
 }

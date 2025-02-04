@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   TBR.h                                              :+:      :+:    :+:   */
+/*   obx.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 12:27:58 by efinda            #+#    #+#             */
-/*   Updated: 2025/01/26 19:07:31 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/04 05:04:51 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TBR_H
-# define TBR_H
+#ifndef OBX_H
+# define OBX_H
 
 # include "../libft/libft.h"
 # include "mlx.h"
@@ -36,17 +36,39 @@
 # define LEFT 65361
 # define RIGHT 65363
 
-# define NUMLEFT 65430
-# define NUMRIGHT 65432
-# define NUMUP 65431
-# define NUMUPLEFT 65429
-# define NUMUPRIGHT 65434
-# define NUMDOWN 65433
-# define NUMDOWNLEFT 65436
-# define NUMDOWNRIGHT 65435
+// MOVEMENT
+void	move_player(t_obx *obx, t_plane flag);
 
-//    MLX
+// OBX
+void	bounding_box(t_obx *obx);
+
+//  GRAND
+void	init_grandmap(t_obx *obx, int i);
+void	grand_link_tiles(t_obx *obx, int i, int j);
+
+//  LIL
+void	init_lilmap(t_obx *obx, int i);
+void	lil_link_tiles(t_obx *obx, int i, int j);
+
+//  CHECKS
+void	checks(t_map *map, int ac, char **av);
+void	fill_map(t_map *map);
+void	check_starting_position(t_map *map);
+void	is_surrounded(t_map *map);
+void    exit_map(char *message, t_map *map);
+
+//  MLX
+void	my_mlx_init(t_obx *obx);
+void	my_mlx_hook(t_obx *obx);
 int		my_mlx_get_rgb_color(int r, int g, int b);
 void	my_mlx_pixel_put(t_img *image, int x, int y, int color);
+
+//  T_ROW
+char	**row_to_mtx(t_rows *head);
+void	free_rows(t_rows **head);
+t_rows	*new_row(char *str);
+int	rowlen(t_rows *head);
+void	add_row(t_rows **head, t_rows *_new);
+
 
 #endif
