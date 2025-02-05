@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 05:03:00 by efinda            #+#    #+#             */
-/*   Updated: 2025/02/04 09:35:35 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/05 15:41:37 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ static void	move_player_up(t_obx *obx, int i, int j)
 	if (obx->cur->up && obx->cur->up->id != '1')
 	{
         	obx->cur->id = '0';
-        	obx->cur->color = 0xFFFFFF;
+        	obx->cur->color = WHITE;
         	obx->cur = obx->cur->up;
        		obx->cur->id = 'S';
-        	obx->cur->color = 0xFF0000;
-		update_obx(obx);
+        	obx->cur->color = RED;
+		    update_obx(obx, obx->cur, (t_plane){0, 0, 0, 0}, (t_iter){-1, -1, -1, -1, -1, -1});
 	}
 }
 
@@ -30,11 +30,11 @@ static void	move_player_down(t_obx *obx, int i, int j)
 	if (obx->cur->down && obx->cur->down->id != '1')
     {
         obx->cur->id = '0';
-        obx->cur->color = 0xFFFFFF;
+        obx->cur->color = WHITE;
         obx->cur = obx->cur->down;
         obx->cur->id = 'S';
-        obx->cur->color = 0xFF0000;
-	    update_obx(obx);
+        obx->cur->color = RED;
+	    update_obx(obx, obx->cur, (t_plane){0, 0, 0, 0}, (t_iter){-1, -1, -1, -1, -1, -1});
     }
 }
 
@@ -43,11 +43,11 @@ static void	move_player_right(t_obx *obx, int i, int j)
 	if (obx->cur->right && obx->cur->right->id != '1')
     {
         obx->cur->id = '0';
-        obx->cur->color = 0xFFFFFF;
+        obx->cur->color = WHITE;
         obx->cur = obx->cur->right;
         obx->cur->id = 'S';
-        obx->cur->color = 0xFF0000;
-	    update_obx(obx);
+        obx->cur->color = RED;
+	    update_obx(obx, obx->cur, (t_plane){0, 0, 0, 0}, (t_iter){-1, -1, -1, -1, -1, -1});
     }
 }
 
@@ -56,11 +56,11 @@ static void	move_player_left(t_obx *obx, int i, int j)
     if (obx->cur->left && obx->cur->left->id != '1')
     {
         obx->cur->id = '0';
-        obx->cur->color = 0xFFFFFF;
+        obx->cur->color = WHITE;
         obx->cur = obx->cur->left;
         obx->cur->id = 'S';
-        obx->cur->color = 0xFF0000;
-	    update_obx(obx);
+        obx->cur->color = RED;
+	    update_obx(obx, obx->cur, (t_plane){0, 0, 0, 0}, (t_iter){-1, -1, -1, -1, -1, -1});
     }
 }
 

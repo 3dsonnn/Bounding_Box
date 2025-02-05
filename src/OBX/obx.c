@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:23:59 by efinda            #+#    #+#             */
-/*   Updated: 2025/02/04 09:32:51 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/05 16:37:58 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ static  void	paint_background_tile(t_obx *obx, int i, int j, int color)
 
 void	bounding_box(t_obx *obx, int i, int j)
 {
+	// my_mlx_clear_image(&obx->background_img);
+	my_mlx_clear_image(&obx->minimap.img);
     while (++i < obx->map.size.y)
     {
         j = -1;
@@ -74,7 +76,7 @@ void	bounding_box(t_obx *obx, int i, int j)
     }
     mlx_put_image_to_window(obx->mlx, obx->win, obx->background_img.img, 0, 0);
 	if (obx->minimap.box)
-		paint_obx(obx, obx->minimap.corners[TOPLEFT], obx->minimap.corners[TOPLEFT]);
+		paint_obx(obx, obx->minimap.corners[TOPLEFT]);
 	else
 	{
         i = -1;

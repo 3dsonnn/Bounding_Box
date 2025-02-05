@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:40:46 by efinda            #+#    #+#             */
-/*   Updated: 2025/02/04 14:06:00 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/05 13:55:56 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ static	void	init_minimap(t_obx *obx)
 	}
 	obx->minimap.img.width = 220;
 	obx->minimap.img.height = 220;
+	obx->minimap.corners[TOPLEFT] = NULL;
+	obx->minimap.corners[TOPRIGHT] = NULL;
+	obx->minimap.corners[BOTTLEFT] = NULL;
+	obx->minimap.corners[BOTTRIGHT] = NULL;
 	obx->minimap.img.img = mlx_new_image(obx->mlx, 220, 220);
 	obx->minimap.img.addr = mlx_get_data_addr(obx->minimap.img.img, &obx->minimap.img.bpp, &obx->minimap.img.line_len, &obx->minimap.img.endian);
 }
@@ -52,29 +56,30 @@ static	void	init_background(t_obx *obx)
 	obx->background_img.addr = mlx_get_data_addr(obx->background_img.img, &obx->background_img.bpp, &obx->background_img.line_len, &obx->background_img.endian);
 }
 
-void	my_mlx_init(t_obx *obx)
+void	my_mlx_init(t_obx *obx, int i, int j)
 {
-	int	i;
-
-	i = -1;
 	obx->mlx = mlx_init();
 	obx->win = mlx_new_window(obx->mlx, WIDTH, HEIGHT, "Bounding Box");
+	init_background(obx);
+	init_minimap(obx);
     obx->tiles = (t_tile **)malloc(sizeof(t_tile *) * (obx->map.size.y));
 	while (++i < obx->map.size.y)
 	{
+		j = -1;
 		obx->tiles[i] = (t_tile *)malloc(sizeof(t_tile) * obx->map.size.x);
-		obx->tiles[i]->up = NULL;
-		obx->tiles[i]->down = NULL;
-		obx->tiles[i]->left = NULL;
-		obx->tiles[i]->right = NULL;
-		obx->tiles[i]->upleft = NULL;
-		obx->tiles[i]->upright = NULL;
-		obx->tiles[i]->downleft = NULL;
-		obx->tiles[i]->downright = NULL;
+		while (++j < obx->map.size.x)
+		{
+			obx->tiles[i][j].up = NULL;
+			obx->tiles[i][j].down = NULL;
+			obx->tiles[i][j].left = NULL;
+			obx->tiles[i][j].right = NULL;
+			obx->tiles[i][j].upleft = NULL;
+			obx->tiles[i][j].upright = NULL;
+			obx->tiles[i][j].downleft = NULL;
+			obx->tiles[i][j].downright = NULL;
+		}
 	}
 	link_tiles(obx, 0, 0);
 	set_tiles(obx, -1, -1);
-	init_background(obx);
-	init_minimap(obx);
-    ft_mtxfree(&obx->map.content);
+	ft_mtxfree(&obx->map.content);
 }

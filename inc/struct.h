@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:50:36 by efinda            #+#    #+#             */
-/*   Updated: 2025/02/04 14:05:26 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/05 14:05:03 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ typedef enum e_CORNERS
 	BOTTLEFT,
 	BOTTRIGHT
 }					t_CORNERS;
+
+typedef struct s_iter
+{
+	int				i;
+	int				j;
+	int				k;
+	int				l;
+	int				m;
+	int				n;
+}					t_iter;
 
 typedef struct s_plane
 {
