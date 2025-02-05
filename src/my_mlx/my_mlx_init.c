@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:40:46 by efinda            #+#    #+#             */
-/*   Updated: 2025/02/05 13:55:56 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/05 22:04:29 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@ static	void	init_minimap(t_obx *obx)
 	}
 	obx->minimap.img.width = 220;
 	obx->minimap.img.height = 220;
-	obx->minimap.corners[TOPLEFT] = NULL;
-	obx->minimap.corners[TOPRIGHT] = NULL;
-	obx->minimap.corners[BOTTLEFT] = NULL;
-	obx->minimap.corners[BOTTRIGHT] = NULL;
+	obx->minimap.refs[REF] = NULL;
+	obx->minimap.refs[REF_X] = NULL;
+	obx->minimap.refs[REF_Y] = NULL;
 	obx->minimap.img.img = mlx_new_image(obx->mlx, 220, 220);
 	obx->minimap.img.addr = mlx_get_data_addr(obx->minimap.img.img, &obx->minimap.img.bpp, &obx->minimap.img.line_len, &obx->minimap.img.endian);
 }
@@ -73,10 +72,6 @@ void	my_mlx_init(t_obx *obx, int i, int j)
 			obx->tiles[i][j].down = NULL;
 			obx->tiles[i][j].left = NULL;
 			obx->tiles[i][j].right = NULL;
-			obx->tiles[i][j].upleft = NULL;
-			obx->tiles[i][j].upright = NULL;
-			obx->tiles[i][j].downleft = NULL;
-			obx->tiles[i][j].downright = NULL;
 		}
 	}
 	link_tiles(obx, 0, 0);

@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:23:59 by efinda            #+#    #+#             */
-/*   Updated: 2025/02/05 16:37:58 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/05 22:08:42 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	bounding_box(t_obx *obx, int i, int j)
     }
     mlx_put_image_to_window(obx->mlx, obx->win, obx->background_img.img, 0, 0);
 	if (obx->minimap.box)
-		paint_obx(obx, obx->minimap.corners[TOPLEFT]);
+		paint_obx(obx, obx->minimap.refs[REF]);
 	else
 	{
         i = -1;
