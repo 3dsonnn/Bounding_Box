@@ -50,8 +50,7 @@ At this point, the algorithm was working, but it showed some inconsistencies whe
 
 Image from the code source: Dynamic\_Minimap/src/OBX/update\_obx.c 
 
-Without these conditions, I was either getting a segmentation fault or a bounding box smaller than the minimap size, which led to some tiles of the minimap being static. Shoutout to [@gecarval](https://github.com/gecarval) 
-**@gecarval** 󰹹 for suggesting I clear the image (by painting it all black) each time the player moved. While this helped, it wasn’t the full solution because even though the static tiles weren’t being rendered, the minimap still wasn’t being completely painted. 
+Without these conditions, I was either getting a segmentation fault or a bounding box smaller than the minimap size, which led to some tiles of the minimap being static. Shoutout to [@gecarval](https://github.com/gecarval) 󰹹 for suggesting I clear the image (by painting it all black) each time the player moved. While this helped, it wasn’t the full solution because even though the static tiles weren’t being rendered, the minimap still wasn’t being completely painted. 
 
 3. **Real-Time Updates:** 
 
