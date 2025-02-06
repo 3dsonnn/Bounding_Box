@@ -65,4 +65,5 @@ If you’ve got ideas for making this even better, feel free to open an issue or
 
 **Thanks for reading!** 󰝺❤ 
 
-**Yours Truly,** (again, if you know, you know 🤣) Efinda 🫠# Bounding_Box
+**Yours Truly,** (again, if you know, you know 🤣)
+Efinda 🫠
