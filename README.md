@@ -39,7 +39,8 @@ I based my algorithm on an idea from [Circle fill on a grid](https://www.redblob
 <figure>
   <img src="images/Bounding_Box.png" alt="Screenshot Bounding Box">
   <figcaption>
-  Bounding Box image from [Circle fill on a grid](https://www.redblobgames.com/grids/circle-drawing/)
+  Bounding Box Illustration
+  Image from (https://www.redblobgames.com/grids/circle-drawing/)
   </figcaption>
 </figure> 
 
