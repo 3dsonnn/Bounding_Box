@@ -48,9 +48,16 @@ So, how does this magic happen? Here’s the breakdown:
 
 1. **Player’s Position is Key**:
 
-I based my algorithm on an idea from [Circle fill on a grid](https://www.redblobgames.com/grids/circle-drawing/) called **Bounding Box,** which involves finding the corners of the minimap based on the player’s current position.  
-![][image1]  
-Bounding Box image from [Circle fill on a grid](https://www.redblobgames.com/grids/circle-drawing/)
+I based my algorithm on an idea from [Circle fill on a grid](https://www.redblobgames.com/grids/circle-drawing/) called **Bounding Box,** which involves finding the corners of the minimap based on the player’s current position.
+
+<figure>
+  <img src="images/Bounding_Box.png" alt="Screenshot Bounding Box">
+  <figcaption>
+  Bounding Box Illustration
+  
+  Image from (https://www.redblobgames.com/grids/circle-drawing/)
+  </figcaption>
+</figure>
 
 This is done in the update\_obx function, where I set a square radius of 5 tiles in the cardinal directions starting from the player’s position to get the corner tiles. After finding them, I use the top-left corner as a reference to help with the logic of the algorithm and to paint the minimap later.
 
