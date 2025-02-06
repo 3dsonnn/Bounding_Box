@@ -37,8 +37,8 @@ So, how does this magic happen? Here’s the breakdown:
 I based my algorithm on an idea from [Circle fill on a grid](https://www.redblobgames.com/grids/circle-drawing/) called **Bounding Box,** which involves finding the corners of the minimap based on the player’s current position. 
 
 <figure>
-  <img src="images/Bounding_Box.png" alt="Screenshot of the minimap">
-  <figcaption>Figure 1: Screenshot of the dynamic minimap in action.</figcaption>
+  <img src="images/Bounding_Box.png" alt="Screenshot Bounding Box">
+  <figcaption>Bounding Box image from Circle fill on a grid</figcaption>
 </figure>
 
 Bounding Box image from [Circle fill on a grid](https://www.redblobgames.com/grids/circle-drawing/) 
