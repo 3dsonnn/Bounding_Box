@@ -1,4 +1,4 @@
-﻿# **Bounding_Box** 
+# **Bounding_Box** 
 **Dearest Readers,** (if you know, you know 😂) 
 
 This project is about creating a **dynamic minimap** 😎 for a 2D game. If you’ve ever played a game with a huge map, you know how annoying it can be when the minimap is just as massive, cluttered, and hard to read. That’s where this comes in! The dynamic minimap focuses on the player’s immediate area, making it way more useful and less overwhelming. 
@@ -36,7 +36,10 @@ So, how does this magic happen? Here’s the breakdown:
 
 I based my algorithm on an idea from [Circle fill on a grid](https://www.redblobgames.com/grids/circle-drawing/) called **Bounding Box,** which involves finding the corners of the minimap based on the player’s current position. 
 
-![](Aspose.Words.5f7bfca7-11a3-414a-bcda-19a46bd12548.001.png)
+<figure>
+  <img src="images/Bounding_Box.png" alt="Screenshot of the minimap">
+  <figcaption>Figure 1: Screenshot of the dynamic minimap in action.</figcaption>
+</figure>
 
 Bounding Box image from [Circle fill on a grid](https://www.redblobgames.com/grids/circle-drawing/) 
 
