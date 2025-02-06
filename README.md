@@ -1,4 +1,4 @@
-# **Dynamic Minimap**
+# **Bounding Box**
 
 **Dearest Readers,** (if you know, you know 😂)
 
@@ -81,13 +81,6 @@ Image from the code source: Dynamic\_Minimap/src/OBX/update\_obx.c
 3. **Real-Time Updates:**
 
 	Finally, after squashing a bunch of bugs, the algorithm became fully functional. Now, as the player moves, the minimap updates instantly, keeping everything accurate.
-
-## **How to Use It**
-
-1. Clone this repo.  
-2. Drop the minimap system into your 2D game engine.  
-3. Set up the render radius and customize the icons to match your game’s style.  
-4. Make sure the player’s position updates in real-time, and you’re good to go\!
 
 ## **Wanna Help Out?**
 
