@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 13:50:36 by efinda            #+#    #+#             */
-/*   Updated: 2025/02/05 22:04:40 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/06 01:24:52 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 typedef enum e_CORNERS
 {
-	REF,
-	REF_X,
-	REF_Y,
+	TOPLEFT,
+	TOPRIGHT,
+	BOTTLEFT,
+	BOTTRIGHT
 }					t_CORNERS;
 
 typedef struct s_iter
@@ -80,7 +81,7 @@ typedef struct s_mmap
 {
 	int				box;
 	int				tilesize;
-	t_tile			*refs[3];
+	t_tile			*corners[4];
 	t_tile			**tiles;
 	t_img			img;
 }					t_mmap;

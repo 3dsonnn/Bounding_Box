@@ -6,13 +6,13 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 10:40:46 by efinda            #+#    #+#             */
-/*   Updated: 2025/02/05 22:04:29 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/06 01:25:40 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/obx.h"
 
-static	void	init_minimap(t_obx *obx)
+static void	init_minimap(t_obx *obx)
 {
 	int	max;
 
@@ -32,14 +32,17 @@ static	void	init_minimap(t_obx *obx)
 	}
 	obx->minimap.img.width = 220;
 	obx->minimap.img.height = 220;
-	obx->minimap.refs[REF] = NULL;
-	obx->minimap.refs[REF_X] = NULL;
-	obx->minimap.refs[REF_Y] = NULL;
+	obx->minimap.corners[TOPLEFT] = NULL;
+	obx->minimap.corners[TOPRIGHT] = NULL;
+	obx->minimap.corners[BOTTLEFT] = NULL;
+	obx->minimap.corners[BOTTRIGHT] = NULL;
 	obx->minimap.img.img = mlx_new_image(obx->mlx, 220, 220);
-	obx->minimap.img.addr = mlx_get_data_addr(obx->minimap.img.img, &obx->minimap.img.bpp, &obx->minimap.img.line_len, &obx->minimap.img.endian);
+	obx->minimap.img.addr = mlx_get_data_addr(obx->minimap.img.img,
+			&obx->minimap.img.bpp, &obx->minimap.img.line_len,
+			&obx->minimap.img.endian);
 }
 
-static	void	init_background(t_obx *obx)
+static void	init_background(t_obx *obx)
 {
 	int	tmp[2];
 
@@ -51,8 +54,10 @@ static	void	init_background(t_obx *obx)
 		obx->background_tilesize = *tmp;
 	obx->background_img.width = WIDTH;
 	obx->background_img.height = HEIGHT;
-    obx->background_img.img = mlx_new_image(obx->mlx, WIDTH, HEIGHT);
-	obx->background_img.addr = mlx_get_data_addr(obx->background_img.img, &obx->background_img.bpp, &obx->background_img.line_len, &obx->background_img.endian);
+	obx->background_img.img = mlx_new_image(obx->mlx, WIDTH, HEIGHT);
+	obx->background_img.addr = mlx_get_data_addr(obx->background_img.img,
+			&obx->background_img.bpp, &obx->background_img.line_len,
+			&obx->background_img.endian);
 }
 
 void	my_mlx_init(t_obx *obx, int i, int j)
@@ -61,7 +66,7 @@ void	my_mlx_init(t_obx *obx, int i, int j)
 	obx->win = mlx_new_window(obx->mlx, WIDTH, HEIGHT, "Bounding Box");
 	init_background(obx);
 	init_minimap(obx);
-    obx->tiles = (t_tile **)malloc(sizeof(t_tile *) * (obx->map.size.y));
+	obx->tiles = (t_tile **)malloc(sizeof(t_tile *) * (obx->map.size.y));
 	while (++i < obx->map.size.y)
 	{
 		j = -1;

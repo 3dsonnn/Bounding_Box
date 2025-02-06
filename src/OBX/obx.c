@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:23:59 by efinda            #+#    #+#             */
-/*   Updated: 2025/02/05 22:08:42 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/06 01:26:22 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	paint_minimap_tile(t_obx *obx, int i, int j, int color)
 	}
 }
 
-static  void	paint_background_tile(t_obx *obx, int i, int j, int color)
+static void	paint_background_tile(t_obx *obx, int i, int j, int color)
 {
 	int	x0;
 	int	x;
@@ -66,26 +66,25 @@ static  void	paint_background_tile(t_obx *obx, int i, int j, int color)
 
 void	bounding_box(t_obx *obx, int i, int j)
 {
-	// my_mlx_clear_image(&obx->background_img);
-	my_mlx_clear_image(&obx->minimap.img);
-    while (++i < obx->map.size.y)
-    {
-        j = -1;
-        while (++j < obx->map.size.x)
-                paint_background_tile(obx, i, j, obx->tiles[i][j].color);
-    }
-    mlx_put_image_to_window(obx->mlx, obx->win, obx->background_img.img, 0, 0);
+	while (++i < obx->map.size.y)
+	{
+		j = -1;
+		while (++j < obx->map.size.x)
+			paint_background_tile(obx, i, j, obx->tiles[i][j].color);
+	}
+	mlx_put_image_to_window(obx->mlx, obx->win, obx->background_img.img, 0, 0);
 	if (obx->minimap.box)
-		paint_obx(obx, obx->minimap.refs[REF]);
+		paint_obx(obx, obx->minimap.corners[TOPLEFT]);
 	else
 	{
-        i = -1;
+		i = -1;
 		while (++i < obx->map.size.y)
 		{
 			j = -1;
 			while (++j < obx->map.size.x)
-					paint_minimap_tile(obx, i, j, obx->tiles[i][j].color);
+				paint_minimap_tile(obx, i, j, obx->tiles[i][j].color);
 		}
 	}
-	mlx_put_image_to_window(obx->mlx, obx->win, obx->minimap.img.img, WIDTH - 220, 0);
+	mlx_put_image_to_window(obx->mlx, obx->win, obx->minimap.img.img, WIDTH
+		- 220, 0);
 }

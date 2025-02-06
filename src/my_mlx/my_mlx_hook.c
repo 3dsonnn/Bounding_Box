@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/13 11:33:35 by efinda            #+#    #+#             */
-/*   Updated: 2025/02/04 09:36:26 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/05 23:43:54 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static int	my_mlx_close(t_obx *obx)
 	mlx_destroy_image(obx->mlx, obx->minimap.img.img);
 	mlx_destroy_window(obx->mlx, obx->win);
 	mlx_destroy_display(obx->mlx);
+	free_tiles(obx);
 	free(obx->mlx);
 	exit(0);
 }
@@ -42,7 +43,7 @@ static int	my_mlx_key_press(int keycode, t_obx *obx)
 
 static int	my_mlx_mouse_motion(int x, int y, t_obx *obx)
 {
-    (void)obx;
+	(void)obx;
 	printf("Mouse position: x=%d\ty=%d\n", x, y);
 	return (0);
 }

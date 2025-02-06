@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 02:23:44 by efinda            #+#    #+#             */
-/*   Updated: 2025/02/03 14:06:56 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/05 23:28:30 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,11 @@ void	check_starting_position(t_map *map)
 		exit_map("There isn't a start position on the map", map);
 	if (flag > 1)
 		exit_map("There's more than one start position on the map", map);
+}
+
+//	This function needs to be improved
+void	check_map_size(t_map *map)
+{
+	if (map->size.x < 3 || map->size.y < 3)
+		exit_map("The map is too small", map);
 }

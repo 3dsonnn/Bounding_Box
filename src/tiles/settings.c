@@ -6,7 +6,7 @@
 /*   By: efinda <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 07:03:10 by efinda            #+#    #+#             */
-/*   Updated: 2025/02/05 22:24:12 by efinda           ###   ########.fr       */
+/*   Updated: 2025/02/05 23:47:05 by efinda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void	set_tiles(t_obx *obx, int i, int j)
 			}
 		}
 	}
-	if (obx->minimap.box)
-		update_obx(obx, obx->cur, (t_plane){0, 0, 0, 0}, (t_iter){-1, -1, -1, -1, -1, -1});
+	update_obx(obx, obx->cur, (t_plane){0, 0, 0, 0}, (t_iter){-1, -1, -1, -1,
+		-1, -1});
 }
