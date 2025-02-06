@@ -50,16 +50,13 @@ At this point, the algorithm was working, but it showed some inconsistencies whe
 
 Image from the code source: Dynamic\_Minimap/src/OBX/update\_obx.c 
 
-Without these conditions, I was either getting a segmentation fault or a bounding box smaller than the minimap size, which led to some tiles of the minimap being static. Shoutout to **@gecarval** 󰹹 for suggesting I clear the image (by painting it all black) each time the player moved. While this helped, it wasn’t the full solution because even though the static tiles weren’t being rendered, the minimap still wasn’t being completely painted. 
+Without these conditions, I was either getting a segmentation fault or a bounding box smaller than the minimap size, which led to some tiles of the minimap being static. Shoutout to [@gecarval](https://github.com/gecarval) 
+**@gecarval** 󰹹 for suggesting I clear the image (by painting it all black) each time the player moved. While this helped, it wasn’t the full solution because even though the static tiles weren’t being rendered, the minimap still wasn’t being completely painted. 
 
 3. **Real-Time Updates:** 
 
-Finally, after squashing a bunch of bugs, the algorithm became fully functional. Now, as the player moves, the minimap updates instantly, keeping everything accurate. 
-## **How to Use It** 
-1. Clone this repo. 
-1. Drop the minimap system into your 2D game engine. 
-1. Set up the render radius and customize the icons to match your game’s style. 
-1. Make sure the player’s position updates in real-time, and you’re good to go! 
+Finally, after squashing a bunch of bugs, the algorithm became fully functional. Now, as the player moves, the minimap updates instantly, keeping everything accurate.
+
 ## **Wanna Help Out?** 
 If you’ve got ideas for making this even better, feel free to open an issue or submit a pull request. Let’s make this minimap the best it can be! 🚀 
 
