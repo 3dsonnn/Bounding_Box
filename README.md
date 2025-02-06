@@ -70,7 +70,7 @@ At this point, the algorithm was working, but it showed some inconsistencies whe
   <figure>
     <img src="images/Update_Checks.png" alt="Screenshot Update Checks">
     <figcaption>
-      Bounding Box Illustration Image from Bounding_Box/src/OBX/update_obx.c
+      Screenshot of the source code: Bounding_Box/src/OBX/update_obx.c
     </figcaption>
   </figure>
 </p>
